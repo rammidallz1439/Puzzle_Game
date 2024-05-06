@@ -10,6 +10,7 @@ namespace Vault
         {
             AddObserver(EventManager.Instance);
             AddObserver(new LevelController());
+            AddObserver(new CharacterSelectionController());
       
         }
 

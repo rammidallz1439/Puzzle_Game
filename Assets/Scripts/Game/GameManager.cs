@@ -7,11 +7,15 @@ namespace Game
 {
     public class GameManager : MonoBehaviour
     {
+       
         private void Start()
         {
             EventManager.Instance.TriggerEvent(new CreateLevelStructureEvent());  
             EventManager.Instance.TriggerEvent(new SpawnItemEvent());  
         }
+
+
+       
     }
 }
 

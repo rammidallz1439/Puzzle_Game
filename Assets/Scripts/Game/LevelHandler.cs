@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Vault;
 
 namespace Game
@@ -30,13 +31,24 @@ namespace Game
             SpawnItems();
         }
 
+        protected void ClearBoxesEventHandler(ClearBoxesEvent e)
+        {
+            foreach (GameObject item in manager.SpawnedBoxes)
+            {
+                if(item.transform.childCount <= 2)
+                {
+                    item.SetActive(false);
+                   
+                }
+            }
+        }
 
         #endregion
 
 
 
         #region methods
-        //Instantiate Boxes From the data
+       
         void InstantiateObjects(List<List<int>> PlacementData, List<List<float>> Xpositions)
         {
             if (PlacementData == null)
@@ -45,7 +57,7 @@ namespace Game
                 return;
             }
 
-            float Yspacing = 1.33f; //  vertical spacing between rows 
+            float Yspacing = 1.33f;
             Vector3 positionOffset = Vector3.zero;
 
             try
@@ -57,12 +69,11 @@ namespace Game
                     {
                         if (PlacementData[y][x] == 1)
                         {
-                            // Calculate y position based on row index
+                           
                             float yPos = y * Yspacing;
-                            // Create position of Object
+                         
                             Vector3 position = new Vector3(Xpositions[y][x], yPos, 0) + positionOffset;
 
-                            // Instantiate the prefab at the calculated position
                             GameObject box = MonoHelper.instance.InstantiateObject(manager.BoxPrefab, position, Quaternion.Euler(180f, 180f, 180f));
                             manager.SpawnedBoxes.Add(box);
                         }
@@ -75,23 +86,27 @@ namespace Game
             }
         }
 
-
+        int count = 0;
         void SpawnItems()
         {
-            int count = 0;
+            
+            Box box = null;
             for (int j = 0; j < manager.SpawnedBoxes.Count; j++)
             {
                 for (int i = 0; i < manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].SpawnCount; i++)
                 {
-                    
-                    GameObject obj = ChangeItemType(manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].Items[count].Item,
-                        manager.SpawnedBoxes[j].transform);
-                    obj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                    obj.transform.rotation = Quaternion.Euler(0,180,0);
-                    count++;
+                    if(count <= manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].Items.Count - 1)
+                    {
+                        GameObject obj = ChangeItemType(manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].Items[count].Item,
+                     manager.SpawnedBoxes[j].transform);
+                        box = manager.SpawnedBoxes[j].transform.GetComponent<Box>();
+                        box.SpawnedObjects.Add(obj.transform);
+                        count++;
+                    }
+                 
                 }
+                PlaceSpawnableObjects(box.SpawnedObjects, box.SpawnPoints);
             }
-
         }
 
         GameObject ChangeItemType(ItemTypes type, Transform transform)
@@ -114,6 +129,33 @@ namespace Game
 
         }
 
+        void PlaceSpawnableObjects(List<Transform> pos,List<Transform> spawnPoint)
+        {
+            if (manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].SpawnCount == 1)
+            {
+                pos[0].position = spawnPoint[0].transform.position;
+
+            }
+            else if (manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].SpawnCount == 2)
+            {
+                if (count <= manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].Items.Count - 1)
+                {
+                    pos[0].position = spawnPoint[1].transform.position + new Vector3(0.3f, 0f, 0f);
+                    pos[1].position = spawnPoint[2].transform.position + new Vector3(-0.3f, 0f, 0f);
+                }
+                
+            }
+            else if (manager.LevelDataConfig.LevelLayoutData[manager.CurrentLevel].SpawnCount == 3)
+            {
+                for (int i = 0; i < pos.Count; i++)
+                {
+                    pos[i].position = spawnPoint[i].transform.position;
+                }
+
+            }
+
+
+        }
         #endregion
     }
 }
