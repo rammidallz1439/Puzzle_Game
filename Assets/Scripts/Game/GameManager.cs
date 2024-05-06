@@ -10,6 +10,7 @@ namespace Game
         private void Start()
         {
             EventManager.Instance.TriggerEvent(new CreateLevelStructureEvent());  
+            EventManager.Instance.TriggerEvent(new SpawnItemEvent());  
         }
     }
 }

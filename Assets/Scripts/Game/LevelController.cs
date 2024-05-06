@@ -27,11 +27,13 @@ namespace Game
         public void RegisterListeners()
         {
             EventManager.Instance.AddListener<CreateLevelStructureEvent>(CreateLevelStructureHandler);
+            EventManager.Instance.AddListener<SpawnItemEvent>(SpawnItemsHandler);
         }
 
         public void RemoveListeners()
         {
             EventManager.Instance.RemoveListener<CreateLevelStructureEvent>(CreateLevelStructureHandler);
+            EventManager.Instance.RemoveListener<SpawnItemEvent>(SpawnItemsHandler);
 
         }
     }

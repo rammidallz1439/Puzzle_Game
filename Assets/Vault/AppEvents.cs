@@ -10,3 +10,7 @@ public struct CreateLevelStructureEvent : GameEvent
 
 }
 
+public struct SpawnItemEvent : GameEvent
+{
+
+}

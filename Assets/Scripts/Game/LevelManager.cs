@@ -10,6 +10,9 @@ namespace Game
 
         public LevelData LevelDataConfig;
         public int CurrentLevel;
+        public List<GameObject> SpawnableObjects;
+
+        public List<GameObject> SpawnedBoxes = new List<GameObject>();
     }
 }
 

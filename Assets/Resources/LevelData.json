@@ -1,27 +1,97 @@
 {
   "LevelLayoutData": [
     {
-      "Position": [
-        [ 1, 0, 1, 1 ],
+      "SpawnCount": 2,
+      "Placement": [
+        [ 1, 1, 1 ],
         [ 1, 1, 0 ],
         [ 1, 0, 1 ]
+      ],
+      "XPositions": [
+        [ -2, 0, 2 ],
+        [ -1, 1, 0 ],
+        [ -1.5, 0, 1.5 ]
+      ],
+      "Items": [
+        { "Item": 0 },
+        { "Item": 1 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 0 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 }
       ]
     },
     {
-      "Position": [
-        [ 1, 1, 0 ],
+      "SpawnCount": 3,
+      "Placement": [
+        [ 1, 1, 1 ],
         [ 1, 0, 1 ],
-        [ 0, 1, 0 ]
+        [ 0, 1, 1 ],
+        [ 1, 1, 1 ]
+      ],
+      "XPositions": [
+        [ -2, 0, 2 ],
+        [ -1, 0, 1 ],
+        [ 0, 0.5, 1.5 ],
+        [ -1.5, 0.5, 1.5 ]
+      ],
+      "Items": [
+        { "Item": 0 },
+        { "Item": 1 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 0 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 }
       ]
     },
     {
-      "Position": [
+      "SpawnCount": 3,
+      "Placement": [
         [ 1, 1, 1 ],
         [ 0, 0, 0 ],
+        [ 1, 1, 1 ],
+        [ 1, 1, 1 ],
         [ 1, 1, 1 ]
+      ],
+      "XPositions": [
+        [ 1, 3, 5 ],
+        [ 0, 0, 0 ],
+        [ 0, 0, 0 ],
+        [ 0, 0, 0 ],
+        [ 0, 0, 0 ]
+      ],
+      "Items": [
+        { "Item": 0 },
+        { "Item": 1 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 },
+        { "Item": 2 },
+        { "Item": 0 },
+        { "Item": 0 },
+        { "Item": 2 },
+        { "Item": 1 },
+        { "Item": 1 }
       ]
     }
   ]
 }
-
-

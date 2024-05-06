@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vault;
 
 public class Configs
 {
@@ -17,5 +18,14 @@ public class LevelData
 [Serializable]
 public class LayoutData
 {
-    public List<List<int>> Position;
+    public int SpawnCount;
+    public List<List<int>> Placement;
+    public List<List<float>> XPositions;
+    public List<ItemsData> Items;
+}
+
+[Serializable]
+public class ItemsData : GameEvent
+{
+    public ItemTypes Item;
 }
