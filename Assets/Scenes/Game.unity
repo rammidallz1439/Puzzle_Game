@@ -1245,7 +1245,7 @@ MonoBehaviour:
     type: 3}
   LevelDataConfig:
     LevelLayoutData: []
-  CurrentLevel: 0
+  CurrentLevel: 1
   SpawnableObjects:
   - {fileID: 2501254936504656293, guid: 5ad20c91411455146b2d2d0c633cba09, type: 3}
   - {fileID: 7266003164247567980, guid: 9e5f35b5033208a4081deec418ac5995, type: 3}
